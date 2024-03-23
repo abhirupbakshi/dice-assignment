@@ -1,3 +1,5 @@
+# API:
+
 | Endpoint             | Method | Description                                                       | Request Path Variable  |
 |----------------------|--------|-------------------------------------------------------------------|------------------------|
 | `/summary/:location` | GET    | Get weather summary by location name                              | Location name          |

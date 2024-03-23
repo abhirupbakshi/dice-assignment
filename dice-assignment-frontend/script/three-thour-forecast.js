@@ -6,7 +6,11 @@ const lon = document.querySelector("#lon");
 const searchForm = document.querySelector("#search-from");
 
 async function fetchThreeHourIntervalForecast(lat, lon) {
-    let res = await fetch(`${BASE_URL}/3h/${lat}/${lon}`);
+    let res = await fetch(`${BASE_URL}/3h/${lat}/${lon}`, {
+        headers: {
+            "ngrok-skip-browser-warning": "none"
+        }
+    });
     let status = res.status
     let body = await res.json();
 

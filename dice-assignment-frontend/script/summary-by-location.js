@@ -5,7 +5,11 @@ const search = document.querySelector("#search");
 const searchForm = document.querySelector("#search-from");
 
 async function fetchSummaryByLocation(location) {
-    let res = await fetch(`${BASE_URL}/summary/${location}`);
+    let res = await fetch(`${BASE_URL}/summary/${location}`, {
+        headers: {
+            "ngrok-skip-browser-warning": "none"
+        }
+    });
     let status = res.status
     let body = await res.json();
 

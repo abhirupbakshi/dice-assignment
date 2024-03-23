@@ -1,1 +1,1 @@
-export const BASE_URL = "http://129.159.227.54:8080";
+export const BASE_URL = "https://stable-lioness-really.ngrok-free.app";

@@ -1,0 +1,23 @@
+table {
+    margin: auto;
+    margin-top: 2em;
+    width: 80%;
+}
+
+table th {
+    text-align: center;
+    height: 3em;
+    color: brown;
+    border-bottom: 1px solid brown;
+    border-collapse: collapse;
+    font-size: large;
+}
+
+table tr:nth-child(even) {
+    background-color: rgba(165, 42, 42, 0.12);
+}
+
+table td {
+    height: 2.3em;
+    text-align: center;
+}

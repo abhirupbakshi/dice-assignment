@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "478ef479-e351-4774-9f81-25494a25ef5d",
+		"name": "Localhost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25376306"
+	},
+	"item": [
+		{
+			"name": "Get weather info by location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BASE_URL}}/summary/Berlin"
+			},
+			"response": []
+		},
+		{
+			"name": "Get weather in three hour interval",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/3h/:lat/:lon",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"3h",
+						":lat",
+						":lon"
+					],
+					"variable": [
+						{
+							"key": "lat",
+							"value": "48.85509827536352"
+						},
+						{
+							"key": "lon",
+							"value": "2.3550373045721384"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

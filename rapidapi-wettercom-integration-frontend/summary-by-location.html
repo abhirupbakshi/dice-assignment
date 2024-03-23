@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/root.css">
+    <link rel="stylesheet" href="./style/header.css">
+    <link rel="stylesheet" href="./style/table.css">
+    <link rel="stylesheet" href="./style/misc.css">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="./index.html">Home</a>
+            <a href="./three-thour-forecast.html">Get Wether Forecast In 3 Hour Interval</a>
+        </div>
+    </header>
+
+    <h1 id="title">Get Wether by Location</h1>
+    <form id="search-from">
+        <input id="search" type="text" placeholder="Location" required>
+        <button type="submit">Go</button>
+    </form>
+    <table>
+        <thead>
+            <th>Date</th>
+            <th>Weather</th>
+            <th>Precipitation</th>
+            <th>Min Temp</th>
+            <th>Max Temp</th>
+            <th>Wind</th>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+</body>
+<script src="./script/summary-by-location.js" type="module"></script>
+</html>

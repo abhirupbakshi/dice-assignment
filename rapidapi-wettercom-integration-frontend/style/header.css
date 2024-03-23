@@ -1,0 +1,28 @@
+header {
+    border-bottom: 1px solid #797979;
+    margin-bottom: 2.5em;
+}
+
+header > div {
+    margin: auto;
+    width: 50%;
+    height: 5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > div > a {
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+    border: 3px solid brown;
+    border-radius: 5px;
+    padding: 0.5em;
+    color: brown;
+}
+
+header > div > a:hover {
+    background-color: brown;
+    color: white;
+}

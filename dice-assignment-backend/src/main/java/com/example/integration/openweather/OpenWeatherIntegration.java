@@ -27,14 +27,12 @@ public class OpenWeatherIntegration {
     this.mapper = mapper;
   }
 
-  public ThreeHourForecastDataResponse getThreeHourIntervalForecast(BigDecimal lat, BigDecimal lon)
+  public ThreeHourForecastDataResponse getThreeHourIntervalForecast(String location)
       throws JsonProcessingException {
 
     String uri =
-        "https://api.openweathermap.org/data/2.5/forecast?lat="
-            + lat
-            + "&lon="
-            + lon
+        "https://api.openweathermap.org/data/2.5/forecast?q="
+            + location
             + "&appid="
             + openWeatherKey;
 

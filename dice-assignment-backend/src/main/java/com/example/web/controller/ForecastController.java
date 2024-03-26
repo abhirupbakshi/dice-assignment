@@ -5,7 +5,6 @@ import com.example.integration.openweather.ThreeHourForecastDataResponse;
 import com.example.integration.wetter.SummaryByLocationNameResponse;
 import com.example.integration.wetter.WettercomIntegration;
 import java.io.IOException;
-import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,10 +32,10 @@ public class ForecastController {
     return ResponseEntity.ok().body(wettercom.getForecastSummaryByLocationName(location));
   }
 
-  @GetMapping("/3h/{lat}/{lon}")
+  @GetMapping("/3h/{location}")
   public ResponseEntity<ThreeHourForecastDataResponse> forecastIn3HourInterval(
-      @PathVariable("lat") BigDecimal lat, @PathVariable("lon") BigDecimal lon) throws IOException {
+      @PathVariable("location") String location) throws IOException {
 
-    return ResponseEntity.ok().body(openWeather.getThreeHourIntervalForecast(lat, lon));
+    return ResponseEntity.ok().body(openWeather.getThreeHourIntervalForecast(location));
   }
 }

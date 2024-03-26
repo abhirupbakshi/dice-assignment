@@ -16,13 +16,17 @@ async function fetchThreeHourIntervalForecast(location) {
     return [status, body];
 }
 
+function convertDate(raw) {
+    return new Date(raw).toISOString().split("T")[0];
+}
+
 function createRow(item) {
     let weather = item.weather[0].description;
     weather = weather.charAt(0).toUpperCase() + weather.substring(1);
 
     return `
     <tr>
-        <td>${item.dt_txt}</td>
+        <td>${convertDate(item.dt_txt)}</td>
         <td>${weather}</td>
         <td>${(item.pop * 100).toFixed(2)}%</td>
         <td>${item.main.temp_min}</td>

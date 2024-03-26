@@ -16,13 +16,18 @@ async function fetchSummaryByLocation(location) {
     return [status, body];
 }
 
+function convertDate(raw) {
+    var date = new Date(Date.parse(raw));
+    return date.toISOString().split("T")[0];
+}
+
 function createRow(item) {
     let weather = item.weather.text;
     weather = weather.charAt(0).toLocaleUpperCase() + weather.substring(1);
 
     return `
     <tr>
-        <td>${item.date}</td>
+        <td>${convertDate(item.date)}</td>
         <td>${weather}</td>
         <td>${item.prec.probability}%</td>
         <td>${item.temperature.min}</td>

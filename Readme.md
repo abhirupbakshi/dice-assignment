@@ -190,7 +190,11 @@ Problem details response with a custom field "details" of the string type.
   }
 }
 ```
-# Deployments
+# Integration
+- For the `/summary/:location` endpoint result, <a href="https://rapidapi.com/wettercom-wettercom-default/api/forecast9">this (RapidApiGetForecastSummaryByLocationName)</a> third-party api has been used.
+- For the `/3h/:lat/:lon` endpoint result, <a href="https://openweathermap.org/forecast5">this</a> third-party api has been used.
+
+# Deployment
 - The backend is build into a docker container which can be pulled from <a href="https://hub.docker.com/r/abhirupbakshi/dice-assignment-backend">this</a> docker hub repository.
 - A running instance of the image is already deployed on a OCI (Oracle Cloud Infrastructure) instance.
 - The frontend is deployed on the vercel.

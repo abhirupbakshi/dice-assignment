@@ -4,10 +4,6 @@
     color: rgb(86, 22, 22);
 }
 
-#title:hover {
-    color: #007bff;
-}
-
 form {
     /* border: 1px solid black; */
     width: 50%;

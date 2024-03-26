@@ -190,3 +190,7 @@ Problem details response with a custom field "details" of the string type.
   }
 }
 ```
+# Deployments
+- The backend is build into a docker container which can be pulled from <a href="https://hub.docker.com/r/abhirupbakshi/dice-assignment-backend">this</a> docker hub repository.
+- A running instance of the image is already deployed on a OCI (Oracle Cloud Infrastructure) instance.
+- The frontend is deployed on the vercel.

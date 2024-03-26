@@ -1,12 +1,11 @@
 import { BASE_URL } from "./constant.mjs";
 
 const tbody = document.querySelector("#tbody");
-const lat = document.querySelector("#lat");
-const lon = document.querySelector("#lon");
+const location = document.querySelector("#location");
 const searchForm = document.querySelector("#search-from");
 
-async function fetchThreeHourIntervalForecast(lat, lon) {
-    let res = await fetch(`${BASE_URL}/3h/${lat}/${lon}`, {
+async function fetchThreeHourIntervalForecast(location) {
+    let res = await fetch(`${BASE_URL}/3h/${location}`, {
         headers: {
             "ngrok-skip-browser-warning": "none"
         }
@@ -32,8 +31,8 @@ function createRow(item) {
     </tr>`
 }
 
-async function refresh(lat, lon) {
-    let [status, res] = await fetchThreeHourIntervalForecast(lat, lon);
+async function refresh(location) {
+    let [status, res] = await fetchThreeHourIntervalForecast(location);
 
     if (status == 500) {
         alert("Something went wrong!");
@@ -45,13 +44,5 @@ async function refresh(lat, lon) {
 
 searchForm.addEventListener("submit", event => {
     event.preventDefault();
-    let latV = lat.value.trim()
-    let lonV = lon.value.trim()
-
-    if (isNaN(Number(latV)) || isNaN(Number(lonV))) {
-        alert("Wrong latitude or longitude!");
-        return
-    }
-
-    refresh(latV, lonV);
+    refresh(location.value);
 })

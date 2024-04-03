@@ -14,6 +14,7 @@
         <div>
             <a href="./index.html">Home</a>
             <a href="./three-thour-forecast.html">Get Weather Forecast In 3 Hour Interval</a>
+            <button id="logout">Logout</button>
         </div>
     </header>
 
@@ -35,4 +36,10 @@
     </table>
 </body>
 <script src="./script/summary-by-location.js" type="module"></script>
+<script src="./script/logout.js"></script>
+<script>
+    if (!localStorage.getItem("AUTH_TOKEN")) {
+        window.location.href = "./login-register.html";
+    }
+</script>
 </html>

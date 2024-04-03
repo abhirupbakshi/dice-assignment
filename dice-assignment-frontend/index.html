@@ -14,9 +14,16 @@
         <div>
             <a href="./summary-by-location.html">Get Weather by Location</a>
             <a href="./three-thour-forecast.html">Get Weather Forecast In 3 Hour Interval</a>
+            <button id="logout">Logout</button>
         </div>
     </header>
     <h1 id="title">Welcome to Weather App</h1>
     <img src="./image/home.png" alt="Homepage Image">
 </body>
+<script src="./script/logout.js"></script>
+<script>
+    if (!localStorage.getItem("AUTH_TOKEN")) {
+        window.location.href = "./login-register.html";
+    }
+</script>
 </html>

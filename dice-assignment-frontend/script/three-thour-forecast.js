@@ -5,9 +5,10 @@ const location = document.querySelector("#location");
 const searchForm = document.querySelector("#search-from");
 
 async function fetchThreeHourIntervalForecast(location) {
-    let res = await fetch(`${BASE_URL}/3h/${location}`, {
+    let res = await fetch(`${BASE_URL}/forecast/3h/${location}`, {
         headers: {
-            "ngrok-skip-browser-warning": "none"
+            "ngrok-skip-browser-warning": "none",
+            "Authorization": `Bearer ${localStorage.getItem("AUTH_TOKEN")}`
         }
     });
     let status = res.status

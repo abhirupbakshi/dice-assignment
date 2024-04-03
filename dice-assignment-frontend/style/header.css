@@ -12,7 +12,7 @@ header > div {
     align-items: center;
 }
 
-header > div > a {
+header > div > a, header > div > button {
     font-size: large;
     font-weight: bold;
     text-decoration: none;
@@ -22,7 +22,8 @@ header > div > a {
     color: brown;
 }
 
-header > div > a:hover {
+header > div > a:hover, header > div > button:hover {
     background-color: brown;
     color: white;
+    cursor: pointer;
 }

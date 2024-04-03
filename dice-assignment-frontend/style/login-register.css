@@ -1,0 +1,37 @@
+#form {
+    margin: auto;
+    width: 30%;
+}
+
+form {
+    width: 100%;
+    border: 2px solid brown;
+    border-radius: 5px;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+form > input {
+    width: 100%;
+    margin: 1em 0em;
+}
+
+#mode {
+    margin: 2em 1em;
+}
+
+p {
+    font-size: large;
+}
+
+button {
+    padding: 0.6em 2em;
+    font-size: large;
+    font-weight: bolder;
+    color: white;
+    background-color: rgb(165, 42, 42);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -5,9 +5,10 @@ const search = document.querySelector("#search");
 const searchForm = document.querySelector("#search-from");
 
 async function fetchSummaryByLocation(location) {
-    let res = await fetch(`${BASE_URL}/summary/${location}`, {
+    let res = await fetch(`${BASE_URL}/forecast/summary/${location}`, {
         headers: {
-            "ngrok-skip-browser-warning": "none"
+            "ngrok-skip-browser-warning": "none",
+            "Authorization": `Bearer ${localStorage.getItem("AUTH_TOKEN")}`
         }
     });
     let status = res.status

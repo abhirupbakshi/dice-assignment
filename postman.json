@@ -7,44 +7,113 @@
 	},
 	"item": [
 		{
-			"name": "Get weather info by location",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "{{BASE_URL}}/summary/Berlin"
-			},
-			"response": []
+			"name": "Forecast",
+			"item": [
+				{
+					"name": "Get weather info by location",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}/forecast/summary/Berlin"
+					},
+					"response": []
+				},
+				{
+					"name": "Get weather in three hour interval",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}/forecast/3h/France"
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"name": "Get weather in three hour interval",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{BASE_URL}}/3h/:lat/:lon",
-					"host": [
-						"{{BASE_URL}}"
-					],
-					"path": [
-						"3h",
-						":lat",
-						":lon"
-					],
-					"variable": [
+			"name": "User API",
+			"item": [
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"ab\",\n    \"password\": \"a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
 						{
-							"key": "lat",
-							"value": "48.85509827536352"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let token = pm.response.headers.get('AUTH_TOKEN');",
+									"pm.collectionVariables.set('JWT', token);"
+								],
+								"type": "text/javascript"
+							}
 						},
 						{
-							"key": "lon",
-							"value": "2.3550373045721384"
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "a",
+								"username": "a"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8080/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8080/auth/logout"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiYXV0aG9yaXRpZXMiOiJVU0VSIiwiYWNjb3VudF9leHBpcmVkIjoidHJ1ZSIsImFjY291bnRfbG9ja2VkIjoidHJ1ZSIsImNyZWRlbnRpYWxzX2V4cGlyZWQiOiJ0cnVlIiwiaWF0IjoxNzEyMTQ0NzQ3LCJleHAiOjE3MTIxODA3NDd9.oTG7jCe4aoM1Siyrwdj3p9FjaEjnhyE_bCu31MKwLceZE5ltjNerd_MeUsNcA44LhTB8aiwB_ryIyfX6_4mLvQ"
+		}
+	},
 	"event": [
 		{
 			"listen": "prerequest",
@@ -68,8 +137,12 @@
 	"variable": [
 		{
 			"key": "BASE_URL",
-			"value": "http://localhost:8080",
+			"value": "",
 			"type": "string"
+		},
+		{
+			"key": "JWT",
+			"value": ""
 		}
 	]
 }

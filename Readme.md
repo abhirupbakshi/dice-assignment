@@ -1,9 +1,13 @@
 # API:
 
-| Endpoint             | Method | Description                                                       | Request Path Variable  |
-|----------------------|--------|-------------------------------------------------------------------|------------------------|
-| `/summary/:location` | GET    | Get weather summary by location name                              | Location name          |
-| `/3h/:lat/:lon`      | GET    | Get weather forecast in 3 hour interval by latitude and longitude | Latitude and Longitude |
+| Endpoint                      | Method | Description                                                       | Request Path Variable  | Request Body        |
+|-------------------------------|--------|-------------------------------------------------------------------|------------------------|---------------------|
+| `/user`                       | POST   | Create a new user                                                 |                        | User object         |
+| `/user`                       | DELETE | Delete user by AUTH Token                                         |                        | Deleted user object |
+| `/auth/login`                 | POST   | Needs Username and Password as 'Basic Auth'                       |                        | Returns JWT Token   |
+| `/auth/logout`                | POST   | Logout user by AUTH Token at 'Bearer Auth'                        |                        |                     |
+| `/forecast/summary/:location` | GET    | Get weather summary by location name                              | Location name          | Check Below         |
+| `/forecast/3h/:lat/:lon`      | GET    | Get weather forecast in 3 hour interval by latitude and longitude | Latitude and Longitude | Check Below         |
 
 ## Response Schema Example
 
@@ -190,11 +194,18 @@ Problem details response with a custom field "details" of the string type.
   }
 }
 ```
+
 # Integration
-- For the `/summary/:location` endpoint result, <a href="https://rapidapi.com/wettercom-wettercom-default/api/forecast9">this (RapidApiGetForecastSummaryByLocationName)</a> third-party api has been used.
-- For the `/3h/:lat/:lon` endpoint result, <a href="https://openweathermap.org/forecast5">this</a> third-party api has been used.
+
+- For the `/summary/:location` endpoint
+  result, <a href="https://rapidapi.com/wettercom-wettercom-default/api/forecast9">this (
+  RapidApiGetForecastSummaryByLocationName)</a> third-party api has been used.
+- For the `/3h/:lat/:lon` endpoint result, <a href="https://openweathermap.org/forecast5">this</a> third-party api has
+  been used.
 
 # Deployment
-- The backend is build into a docker container which can be pulled from <a href="https://hub.docker.com/r/abhirupbakshi/dice-assignment-backend">this</a> docker hub repository.
-- A running instance of the image is already deployed on a OCI (Oracle Cloud Infrastructure) instance.
+
+- The backend is build into a docker container which can be pulled
+  from <a href="https://hub.docker.com/r/abhirupbakshi/dice-assignment-backend">this</a> docker hub repository.
+- A running instance of the image is already deployed on a Azure VM instance.
 - The frontend is deployed on the vercel.

@@ -1,4 +1,4 @@
-package com.example.integration.wetter;
+package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class SummaryByLocationNameResponse {
+public class WetterSummaryByLocationNameResponse {
 
   private Location location;
   private Forecast forecast;

@@ -1,5 +1,6 @@
-package com.example.integration.wetter;
+package com.example.service.integration;
 
+import com.example.model.WetterSummaryByLocationNameResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
@@ -29,7 +30,7 @@ public class WettercomIntegration {
     this.rapidApiKey = rapidApiKey;
   }
 
-  public SummaryByLocationNameResponse getForecastSummaryByLocationName(String location)
+  public WetterSummaryByLocationNameResponse getForecastSummaryByLocationName(String location)
       throws JsonProcessingException {
     String uri = "https://forecast9.p.rapidapi.com/rapidapi/forecast/" + location + "/summary/";
 
@@ -43,7 +44,7 @@ public class WettercomIntegration {
               .toEntity(String.class)
               .block();
 
-      return mapper.readValue(response.getBody(), SummaryByLocationNameResponse.class);
+      return mapper.readValue(response.getBody(), WetterSummaryByLocationNameResponse.class);
 
     } catch (WebClientResponseException e) {
       HttpStatus status = Objects.requireNonNull(HttpStatus.resolve(e.getStatusCode().value()));

@@ -1,7 +1,6 @@
-package com.example.integration.openweather;
+package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sun.tools.javac.Main;
 import java.time.Instant;
 import java.util.List;
 import lombok.Getter;
@@ -13,7 +12,7 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class ThreeHourForecastDataResponse {
+public class OpenWeatherThreeHourForecastDataResponse {
 
   private Integer cnt;
   private City city;

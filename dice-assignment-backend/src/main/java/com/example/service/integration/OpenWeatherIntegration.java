@@ -1,8 +1,8 @@
-package com.example.integration.openweather;
+package com.example.service.integration;
 
+import com.example.model.OpenWeatherThreeHourForecastDataResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.math.BigDecimal;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,7 +27,7 @@ public class OpenWeatherIntegration {
     this.mapper = mapper;
   }
 
-  public ThreeHourForecastDataResponse getThreeHourIntervalForecast(String location)
+  public OpenWeatherThreeHourForecastDataResponse getThreeHourIntervalForecast(String location)
       throws JsonProcessingException {
 
     String uri =
@@ -40,7 +40,7 @@ public class OpenWeatherIntegration {
       ResponseEntity<String> response =
           WebClient.create(uri).get().retrieve().toEntity(String.class).block();
 
-      return mapper.readValue(response.getBody(), ThreeHourForecastDataResponse.class);
+      return mapper.readValue(response.getBody(), OpenWeatherThreeHourForecastDataResponse.class);
     } catch (WebClientResponseException e) {
       throw new ErrorResponseException(HttpStatus.INTERNAL_SERVER_ERROR);
     }

@@ -1,0 +1,12 @@
+export RAPID_API_KEY=8738d0ca8cmsh1a3d803494289d4p1fb984jsnf3046cd0878e
+export OPEN_WEATHER_KEY=6cbebf8b2c3f818e63f9bb3f6ff04038
+
+export APP_CORS_ALLOWED_HEADERS=*
+export APP_CORS_ALLOWED_ORIGINS=http://localhost:4200
+export APP_JWT_EXPIRATION_SECONDS=36000
+export APP_JWT_SECRET_KEY=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+export SPRING_DATASOURCE_PASSWORD=db
+export SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/db
+export SPRING_DATASOURCE_USERNAME=db
+export APP_CORS_ALLOWED_METHODS=GET,POST,PUT,PATCH,DELETE
